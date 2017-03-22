@@ -91,9 +91,8 @@ class Trial(object):
 		if ('distinct' in self.trial_settings and 'congruent' in self.trial_settings) or ('nondistinct' in self.trial_settings and 'incongruent' in self.trial_settings):
 			self.array_cols.append(self.template_color)
 			self.array_cols.append(self.distractor_color)
-			self.array_cols.append([-.5,-.5,-.5])
-			self.array_cols.append([0,0,0])
-			self.array_cols.append([.5,.5,.5])
+			for greycol in np.linspace(-0.5,0.5,self.parameters['search_set_size']-2):
+				self.array_cols.append([greycol,greycol,greycol])
 		else:
 			self.array_cols.append(self.template_color)
 			distractor_shades = [v for v in range(self.parameters['nvalues']) if v is not self.shadeval]
@@ -143,7 +142,7 @@ class Trial(object):
 			portOut.setData(int(self.stimtrig)); core.wait(0.02) # code for category (1,2,3) and short/long/practice block type (+ 60/70/80)
 			portOut.setData(0)
 		else:
-			print(int(int(self.stimtrig)))
+			print(int(self.stimtrig))
 		for frame in range(target_time):
 			for currStim in self.targetStim: currStim.draw()
 			self.fixStim.draw()
@@ -164,18 +163,24 @@ class Trial(object):
 			portOut.setData(int(self.searchtrig)); core.wait(0.02) # code for category (1,2,3) and short/long/practice block type (+ 60/70/80)
 			portOut.setData(0)
 		else:
-			print(int(int(self.searchtrig)))
+			print(int(self.searchtrig))
 		while True:
 			for currStim in self.searchStim: currStim.draw()
 			self.fixStim.draw()
 			self.screen.flip()
-			for key in event.getKeys():
-				self.button = key
+			if portIn:
+				self.button = portIn.readData()
+				for key in event.getKeys():
+					self.keypress = key
+			else:
+				for key in event.getKeys():
+					self.button = key
+					self.keypress = key
 
 			# to pause/quit the experiment, press p/q
-			if self.button=='p':
+			if self.keypress=='p':
 				continue
-			elif self.button=='q':
+			elif self.keypress=='q':
 				quit()			
 			# otherwise, or to resume a pause, an appropriate button has to be pressed
 			elif self.button in self.parameters['resp_keys']:
@@ -189,13 +194,9 @@ class Trial(object):
 				break
 		self.response.append([self.button,rt])
 
-		if self.template_clockwheel==135 and self.button == self.parameters['resp_keys'][0]:
+		if abs(self.template_clockwheel)>90 and self.button == self.parameters['resp_keys'][0]:
 			self.accuracy.append(1)
-		elif self.template_clockwheel==-135 and self.button == self.parameters['resp_keys'][1]:
-			self.accuracy.append(1)
-		elif self.template_clockwheel==45 and self.button == self.parameters['resp_keys'][2]:
-			self.accuracy.append(1)
-		elif self.template_clockwheel==-45 and self.button == self.parameters['resp_keys'][3]:
+		elif abs(self.template_clockwheel)<90 and self.button == self.parameters['resp_keys'][1]:
 			self.accuracy.append(1)
 		else:
 			self.accuracy.append(0)

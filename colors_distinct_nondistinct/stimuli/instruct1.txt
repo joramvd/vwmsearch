@@ -14,9 +14,7 @@ When the black line is solid, the search task will be difficult.
 
 In the search display, press the button that corresponds to the orientation of the clockwheel in the target:
 
-Top-left: F
-Bottom-left: V
-Top-right: J
-Bottom-right: N
+If the clockwheel points to the left: press left
+If the clockwheel points to the right: press right
 
-This may sound difficult. Press the spacebar to see an example trial.
+This may sound difficult. Press a button to see an example trial.

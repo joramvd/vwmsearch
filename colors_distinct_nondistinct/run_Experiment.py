@@ -25,11 +25,10 @@ if any(ans in fS for ans in['n','N']):
 else:
 	params['fullScreen'] = True
 
-params['monitor_refRate'] = 60 # fixed to 60hz for now 
+params['monitor_refRate'] = 60 # 60 on Mac laptop; 120 in lab
 params['monitor_width'] = 47.5
 params['monitor_viewdist'] = 90
-# params['screenSize'] = [1680, 1050]
-params['screenSize'] = [1200, 800]
+params['screenSize'] = [1680, 1050]
 
 mon = monitors.Monitor(name = 'HP', width = params['monitor_width'], distance = params['monitor_viewdist'])
 mon.setSizePix(params['screenSize'])
@@ -60,10 +59,10 @@ params['ring_line_width']  = 6
 params['ring_dash_ori']    = [0, 45, 90, 135]
 params['ring_dash_length'] = params['ring_stim_size']*2+0.5
 params['ring_dash_width']  = pi*2*params['ring_stim_size']/(4*len(params['ring_dash_ori']))
-params['cue_pos']          = 2.0
+params['cue_pos']          = 3.0
 params['search_stim_size'] = 0.75
 params['probe_stim_size']  = params['cue_stim_size']
-params['search_set_size']  = 5
+params['search_set_size']  = 6
 params['search_radius']    = 4
 params['search_angle']     = 2*pi/params['search_set_size']
 
@@ -81,7 +80,7 @@ params['triggers'] = {
 if portIn:
 	params['resp_keys'] = [39,71]
 else:
-	params['resp_keys'] = ['f','v','j','n']
+	params['resp_keys'] = ['f','j']
 
 # The above parameters are assigned to the corresponding stimuli that need these as settings; this is done in Trial.py
 # The actual index of some parameters (e.g. the true/false for present/absent get index 0/1 respectively) is determined in Experiment.py

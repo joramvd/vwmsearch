@@ -2,4 +2,4 @@ Remember that a beep can also warn you that a target you memorized for a difficu
 
 So, in 20% of the trials, you will hear a beep. This beep warns you that the difficulty of the search task will be opposite to what you expected.
 
-Press the spacebar for the final explanation screen.
+Press a button for the final explanation screen.

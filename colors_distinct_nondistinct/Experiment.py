@@ -34,7 +34,7 @@ class Experiment(object):
 							self.trial_settings.append(['congruent',templatepos,color,searchtype,respos])
 
 		shuffle(self.trial_settings)
-		if self.parameters['block_type']=='practice':
+		if self.parameters['ntrials'] is not 'all':
 			self.trial_settings = self.trial_settings[0:self.parameters['ntrials']]
 		else:
 			self.parameters['ntrials'] = len(self.trial_settings)
