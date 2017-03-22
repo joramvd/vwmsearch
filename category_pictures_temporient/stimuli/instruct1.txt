@@ -1,0 +1,17 @@
+Welcome to this experiment.
+
+On each trial you will first briefly see a picture 
+(a face, a letter, or a house)
+
+You need to remember these pictures during a short delay. 
+
+After this delay you will see a circle of 6 pictures. 
+Your task is to judge whether the picture you remembered
+is among these pictures.
+
+If you found it, click the left button.
+If it is not there, click the right button.
+
+Try to respond as fast but also as accurate as possible.
+
+Press a button to see an example trial.

@@ -1,0 +1,6 @@
+You will now practice for NTRIALS trials.
+
+You will receive feedback every time you respond.
+
+Are you ready?
+Press a button to start!

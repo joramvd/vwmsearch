@@ -1,0 +1,22 @@
+Welcome to this experiment.
+
+On each trial you will first briefly see two colored circles. 
+
+One has a grey line around it: you can ignore this one (the distractor).
+The other has a black line around it: you need to remember this one (the target).
+
+After a short delay, you need to search for the target among other distractor colors.
+
+The black line around the the target can be solid, or dashed.
+
+When the black line is dashed, the search task will be easy.
+When the black line is solid, the search task will be difficult.
+
+In the search display, press the button that corresponds to the orientation of the clockwheel in the target:
+
+Top-left: F
+Bottom-left: V
+Top-right: J
+Bottom-right: N
+
+This may sound difficult. Press the spacebar to see an example trial.

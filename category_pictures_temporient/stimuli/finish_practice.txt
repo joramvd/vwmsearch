@@ -1,0 +1,9 @@
+This was the end of the practice block.
+Now the real experiment will start.
+
+We will measure EEG, so try to sit still.
+Also, try to blink your eyes only in between trials.
+
+If you have any questions, this is the time to ask!
+
+Otherwise, press a button to go to the next instruction.

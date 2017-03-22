@@ -1,0 +1,19 @@
+Good job! I hope you now understand the task, and are ready for the real experiment.
+
+We are recording your EEG. Try to sit still and not blink too much. If possible, try to blink in between trials, and not during the delay (when you are memorizing a color for a search task).
+
+Also, try to fixate to the middle of the screen. During search, you can make small eye movements.
+
+Now is the time to ask the experimenter if things are still not clear.
+
+Otherwise, you can start.
+
+You will do NBLOCKS blocks of NTRIALS trials. Each block takes approx. 5-6 minutes, and the whole experiment one hour.
+
+You will not receive feedback after each button press, but after each block your average performance is summarized on the screen.
+
+During the breaks in between blocks, you can move a little. If you get sleepy, try to regain your attention to the task during these breaks.
+
+Are you ready?
+
+Press the spacebar!

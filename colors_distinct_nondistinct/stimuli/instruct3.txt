@@ -1,0 +1,15 @@
+Now you needed to remember the color enclosed by the solid black line. This was followed by a much harder search task. 
+
+The correct answer was V, because the clock wheel at the target color was pointing bottom-left.
+
+In the experiment, whether the search task will be easy or difficult is random from trial to trial. The solid or dashed black lines predict this with 80% probability.
+
+So, sometimes you will expect an easy task (because the target had a dashed line around it), but the search task will unexpectedly be difficult. Or the other way around: the target has a solid line, so you expect a difficult search, but this will unexpectedly be easy.
+
+You are warned about this with a beep during the delay.
+
+In the following two example trials, you will see a target with a dashed line. Again, this predicts an easy search task.
+In the first trial, the search task is easy as expected.
+In the second trial, a beep warns you that the dashed line was invalid, so it will be difficult.
+
+Press the spacebar for the two example trials.

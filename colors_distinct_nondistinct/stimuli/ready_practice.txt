@@ -1,0 +1,10 @@
+If the task is still unclear, you can now ask the experimenter.
+
+During the experiment, always try to fixate to the middle of the screen (to the white dot). Try to respond as fast as possible, but also try to be accurate. 
+
+You will now practice for NTRIALS trials.
+
+You will receive feedback every time you respond.
+
+Are you ready?
+Press the spacebar!
