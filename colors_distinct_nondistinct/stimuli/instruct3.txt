@@ -1,6 +1,6 @@
 Now you needed to remember the color enclosed by the solid black line. This was followed by a much harder search task. 
 
-The correct answer was the left button, because the clock wheel at the target color was pointing bottom-left.
+The correct answer was left index finger, because the second dot in the target color was filled white.
 
 In the experiment, whether the search task will be easy or difficult is random from trial to trial. The solid or dashed black lines predict this with 80% probability.
 

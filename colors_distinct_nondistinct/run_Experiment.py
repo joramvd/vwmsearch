@@ -38,18 +38,18 @@ params['screen'] = myWin
 
 # Trial/stim settings
 
-hue_val = list()
-hue_val.append(['Crimson','Firebrick','IndianRed','OrangeRed','Red','Tomato'])
-hue_val.append(['DarkKhaki','Gold','Goldenrod','Khaki','Moccasin','Yellow'])
-hue_val.append(['SpringGreen','Limegreen','OliveDrab','Lime','LightGreen','ForestGreen'])
-hue_val.append(['Cyan','DarkCyan','DarkTurquoise','PowderBlue','Turquoise','SkyBlue'])
-hue_val.append(['Blue','DarkBlue','SlateBlue','Royalblue','Dodgerblue','Deepskyblue'])
-hue_val.append(['MediumOrchid','DarkMagenta','Fuchsia','MediumVioletRed','DeepPink','HotPink'])
+hue_val = {}
+hue_val['red'] = ['Crimson','Firebrick','IndianRed','OrangeRed','Red','Tomato']
+hue_val['yellow'] = ['DarkKhaki','Gold','Goldenrod','Khaki','Moccasin','Yellow']
+hue_val['green'] = ['SpringGreen','Limegreen','OliveDrab','Lime','LightGreen','ForestGreen']
+hue_val['cyan'] = ['Cyan','DarkCyan','DarkTurquoise','PowderBlue','Turquoise','SkyBlue']
+hue_val['blue'] = ['Blue','DarkBlue','SlateBlue','Royalblue','Dodgerblue','Deepskyblue']
+hue_val['purple'] = ['MediumOrchid','DarkMagenta','Fuchsia','MediumVioletRed','DeepPink','HotPink']
 
 params['ncolors']          = len(hue_val)
-params['nvalues']          = len(hue_val[0])
+params['nvalues']          = len(hue_val['red'])
 params['colors']           = hue_val
-params['clockwheel_pos']   = [45,-45,135,-135]
+params['response_pos']     = [0,1,2,3]
 params['template_side']    = ['left','right']
 params['search_type']      = ['distinct','nondistinct']
 params['cue_stim_size']    = 0.75
@@ -75,23 +75,23 @@ params['triggers'] = {
 	'distinct': 	0,
 	'nondistinct': 	20
 }
+for c,col in enumerate(hue_val):
+	params['triggers'][col] = c
 
 # Response
 if portIn:
 	params['resp_keys'] = [39,71]
 else:
-	params['resp_keys'] = ['f','j']
-
-# The above parameters are assigned to the corresponding stimuli that need these as settings; this is done in Trial.py
-# The actual index of some parameters (e.g. the true/false for present/absent get index 0/1 respectively) is determined in Experiment.py
+	params['resp_keys'] = ['d','f','j','k']
 
 # Timing
 params['timing_ITI_Duration']    = 1.5 # ITI
 params['timing_ITI_Jitter']      = .5 # set to 0 if no jitter
-params['timing_target_Duration'] = .75 # duration of stimulus presentation, in sec
+params['timing_target_Duration'] = .5 # duration of stimulus presentation, in sec
 params['timing_ISI_Duration']    = 2.5 # time between target, probe, and search
 params['timing_WS_Latency']      = 1. # warning signal for incongruent trials after 1 sec; "reorienting" delay is then 1.5 sec.
 
+params['probability'] = (3,7)
 
 #### GO ####
 
@@ -102,18 +102,18 @@ params['ntrials']    = 20 # needs to be divided by 30 color combinations
 params['nblocks']    = 1 
 exp = Experiment(params) 
 exp.run_instruction('stimuli/instruct1.txt')
-exp.run_example_trial(['left',0,'distinct',45,'congruent'])
+exp.run_example_trial(['left','red','distinct',2,'congruent'])
 exp.run_instruction('stimuli/instruct2.txt')
-exp.run_example_trial(['right',4,'nondistinct',-135,'congruent'])
+exp.run_example_trial(['right','blue','nondistinct',1,'congruent'])
 exp.run_instruction('stimuli/instruct3.txt')
-exp.run_example_trial(['right',2,'distinct',-45,'congruent'])
-exp.run_example_trial(['left',3,'distinct',-135,'incongruent'])
+exp.run_example_trial(['right','yellow','distinct',0,'congruent'])
+exp.run_example_trial(['left','green','distinct',3,'incongruent'])
 exp.run_instruction('stimuli/instruct4.txt')
 exp.run()
 
 params['block_type'] = 'real'
 params['ready_text'] = 'stimuli/ready_real.txt'
-params['ntrials']    = 'all'
+params['ntrials']    = 600
 params['nblocks']    = 10 
 exp = Experiment(params)
 exp.run()

@@ -16,28 +16,26 @@ class Experiment(object):
 
 	def setup_trials(self):
 
-		# 192 incongruent trials
+		# incongruent trials
 		self.trial_settings = list()
-		for k in range(2):
-			for templatepos in self.parameters['template_side']:
-				for color in range(self.parameters['ncolors']):
-					for searchtype in self.parameters['search_type']:
-						for respos in self.parameters['clockwheel_pos']:
-							self.trial_settings.append(['incongruent',templatepos,color,searchtype,respos])
+		for prob in self.parameters['probability']:
+			for k in range(prob):
+				for templatepos in self.parameters['template_side']:
+					for color in self.parameters['colors']:
+						for searchtype in self.parameters['search_type']:
+							for respos in self.parameters['response_pos']:
+								if prob < 5:
+									self.trial_settings.append(['incongruent',templatepos,color,searchtype,respos])
+								else:
+									self.trial_settings.append(['congruent',templatepos,color,searchtype,respos])
 
-		# 576 congruent trials
-		for k in range(6):
-			for templatepos in self.parameters['template_side']:
-				for color in range(self.parameters['ncolors']):
-					for searchtype in self.parameters['search_type']:
-						for respos in self.parameters['clockwheel_pos']:
-							self.trial_settings.append(['congruent',templatepos,color,searchtype,respos])
 
 		shuffle(self.trial_settings)
 		if self.parameters['ntrials'] is not 'all':
 			self.trial_settings = self.trial_settings[0:self.parameters['ntrials']]
 		else:
 			self.parameters['ntrials'] = len(self.trial_settings)
+		dbstop()
 
 		self.trials = list()
 		loadtext = visual.TextStim(self.screen, text = 'preloading trials, may take a while...', color = 'white', pos = (0, 0), height = 0.4)

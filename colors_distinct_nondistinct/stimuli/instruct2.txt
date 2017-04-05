@@ -1,5 +1,5 @@
 In this trial you needed to remember the color enclosed by the dashed black line, and ignore the color with grey line.
 
-The clockwheel at the target color in the search array was pointing top-right, so the correct button was the right button.
+The third dot in the target color in the search array was filled white, so the correct button was the third button: right index finger.
 
 Press a button to see another example trial.

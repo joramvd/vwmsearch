@@ -53,8 +53,8 @@ class Trial(object):
 
 	def make_searchTarget(self):
 
-		colval = [val for val in range(self.parameters['ncolors']) if val in self.trial_settings][0]
-		distractor_cols = [v for v in range(self.parameters['ncolors']) if v is not colval and (abs(v-colval)>1 and abs(v-colval)<5)]
+		colval = [val for val in self.parameters['colors'] if val in self.trial_settings][0]
+		distractor_cols = [v for v in self.parameters['colors'] if v is not colval]
 		self.color_idx.append(colval)
 		self.color_idx.append(choice(distractor_cols))
 
@@ -80,13 +80,12 @@ class Trial(object):
 		self.targetStim.append(visual.Circle(self.screen, radius=self.parameters['cue_stim_size'], pos = (self.distractor_side*self.parameters['cue_pos'],0), fillColor = self.distractor_color, lineColor=None, fillColorSpace = 'hsv'))
 
 		trig = [self.parameters['triggers'][key] for key in self.parameters['triggers'] if key in self.trial_settings]
-		trig.append(colval)
 		self.stimtrig = sum(trig)
 
 	def make_searchArray(self):
 
 		self.randpos = range(self.parameters['search_set_size']); shuffle(self.randpos) # n positions of n-search-array, randomized
-		self.template_clockwheel = [pos for pos in self.parameters['clockwheel_pos'] if pos in self.trial_settings][0]
+		self.template_response = [pos for pos in self.parameters['response_pos'] if pos in self.trial_settings][0]
 
 		if ('distinct' in self.trial_settings and 'congruent' in self.trial_settings) or ('nondistinct' in self.trial_settings and 'incongruent' in self.trial_settings):
 			self.array_cols.append(self.template_color)
@@ -103,16 +102,21 @@ class Trial(object):
 		for k,circ in enumerate(self.array_cols):
 			defpos = np.array([self.parameters['search_radius']*cos(self.parameters['search_angle']*(self.randpos[k]+1)+self.parameters['search_angle']/2), self.parameters['search_radius']*sin(self.parameters['search_angle']*(self.randpos[k]+1)+self.parameters['search_angle']/2)*-1])
 			if k==0:
-				clockwheel_pos = self.template_clockwheel
+				response_pos = self.template_response
 			else:
-			 	clockwheel_pos = choice(self.parameters['clockwheel_pos'])
-			posshift = np.array([self.parameters['search_stim_size']/1.2*cos(radians(clockwheel_pos)), self.parameters['search_stim_size']/1.2*sin(radians(clockwheel_pos))])
+			 	response_pos = choice(self.parameters['response_pos'])
 			self.searchStim.append(visual.Circle(self.screen, radius=self.parameters['search_stim_size'], fillColor = circ, fillColorSpace='rgb', lineColor = self.parameters['ring_color'][0], pos = defpos))
-			self.searchStim.append(visual.Rect(self.screen, ori=clockwheel_pos, pos=defpos+posshift, width=0.15, height=self.parameters['cue_stim_size']/1.2, fillColor = self.parameters['ring_color'][0], lineColor=None))
 
-		for p,pos in enumerate(self.parameters['clockwheel_pos']):
-			if self.template_clockwheel == pos:
-				self.searchtrig = p+1
+			# response buttons
+			whereto = [-.35,-.15,.15,.35]
+			for respbut in self.parameters['response_pos']:
+				self.searchStim.append(visual.Circle(self.screen, radius=self.parameters['search_stim_size']/8, fillColor='black',lineColor='black',pos=[defpos[0]+whereto[respbut], defpos[1]]))
+				if respbut == response_pos:
+					self.searchStim.append(visual.Circle(self.screen, radius=self.parameters['search_stim_size']/10, fillColor='white',lineColor='white',pos=[defpos[0]+whereto[respbut], defpos[1]]))
+				else:
+					self.searchStim.append(visual.Circle(self.screen, radius=self.parameters['search_stim_size']/10, fillColor=None,lineColor='white',pos=[defpos[0]+whereto[respbut], defpos[1]]))
+
+		self.searchtrig = self.template_response+1
 
 	def make_feedback(self):
 		self.feedbackStim.append(visual.TextStim(self.screen,text='wrong...',pos=(0.0,0), height=0.6))
@@ -151,6 +155,11 @@ class Trial(object):
 		# ISI with warning signal
 		for frame in range(isi_time):
 			if frame==ws_latency and 'incongruent' in self.trial_settings:
+				if portOut:
+					portOut.setData(int(50)); core.wait(0.02) # code for warning cue
+					portOut.setData(0)
+				else:
+					print(int(self.searchtrig))
 				self.probeSound[0].play()
 			self.fixStim.draw()
 			self.screen.flip()
@@ -187,16 +196,14 @@ class Trial(object):
 				rt=self.timer.getTime()
 				break
 			# if not paused, and no button is pressed, next trial after 5 seconds
-			elif self.timer.getTime() > 5.0:
+			elif self.timer.getTime() > 10.0:
 				self.button=None
 				self.missing=True
 				rt=0.0
 				break
 		self.response.append([self.button,rt])
 
-		if abs(self.template_clockwheel)>90 and self.button == self.parameters['resp_keys'][0]:
-			self.accuracy.append(1)
-		elif abs(self.template_clockwheel)<90 and self.button == self.parameters['resp_keys'][1]:
+		if self.template_response == self.parameters['resp_keys'].index(self.button):
 			self.accuracy.append(1)
 		else:
 			self.accuracy.append(0)

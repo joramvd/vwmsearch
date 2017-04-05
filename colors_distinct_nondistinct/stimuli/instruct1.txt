@@ -12,9 +12,10 @@ The black line around the the target can be solid, or dashed.
 When the black line is dashed, the search task will be easy.
 When the black line is solid, the search task will be difficult.
 
-In the search display, press the button that corresponds to the orientation of the clockwheel in the target:
+In the search display, you will see 6 different colored circles, one of which always corresponds to the color of the target you have in memory. 
 
-If the clockwheel points to the left: press left
-If the clockwheel points to the right: press right
+In each of these 6 circles you see four dots next to each other, these correspond to the four buttons you can press: left middle finger, left index finger, right index finger, right middle finger. One of these dots is filled white, this corresponds to the button associated with the colored circle.
+
+Your task is to find the target, and press the correct button (so one out of four).
 
 This may sound difficult. Press a button to see an example trial.
