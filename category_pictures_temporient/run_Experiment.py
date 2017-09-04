@@ -48,7 +48,7 @@ if any(ans in fS for ans in['n','N']):
 else:
         params['fullScreen'] = True
 
-params['monitor_refRate'] = 30 # fixed to 60hz for now 
+params['monitor_refRate'] = 120 # fixed to 60hz for now 
 params['monitor_width'] = 47.5
 params['monitor_viewdist'] = 90
 #params['monitor_pixelDims'] = (3200, 1800)
@@ -106,7 +106,7 @@ exp.run_example_trial(['house',inFiles[1][10],'absent','long'])
 exp.run_instruction('stimuli/instruct3.txt')
 exp.run()
 exp.run_instruction('stimuli/finish_practice.txt')
-
+##
 # experimental block with only long intervals
 params['block_type'] = 'long'
 params['ready_text'] = 'stimuli/ready_long.txt'
