@@ -93,12 +93,14 @@ params['timing_WS_Latency']      = 1. # warning signal for incongruent trials af
 
 params['probability'] = (3,7)
 
+dbstop()
+
 #### GO ####
 
 # first a practice block with task instructions and example trials
 params['block_type'] = 'practice'
 params['ready_text'] = 'stimuli/ready_practice.txt'
-params['ntrials']    = 20 # needs to be divided by 30 color combinations
+params['ntrials']    = 20 
 params['nblocks']    = 1 
 exp = Experiment(params) 
 exp.run_instruction('stimuli/instruct1.txt')
