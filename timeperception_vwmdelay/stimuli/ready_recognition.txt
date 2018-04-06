@@ -1,0 +1,10 @@
+In the next NBLOCKS blocks of NTRIALS trials,
+judge whether the presented orientation is the same 
+as the remembered orientation.
+
+On random trials, reproduce the memory delay.
+
+You will only receive feedback about your average
+performance after each block.
+
+If you press a button, the actual experiment will start.

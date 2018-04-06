@@ -1,0 +1,9 @@
+In the next NBLOCKS blocks of NTRIALS trials,
+locate the remembered orientation on the left or right side.
+
+On random trials, reproduce the memory delay.
+
+You will only receive feedback about your average
+performance after each block.
+
+If you press a button, the actual experiment will start.

@@ -1,0 +1,11 @@
+In the next NBLOCKS blocks of NTRIALS trials,
+locate where there are two of the same orientations
+in the search array.
+
+On random trials, reproduce the delay between the
+irrelevant orientation stimulus and the search array.
+
+You will only receive feedback about your average
+performance after each block.
+
+If you press a button, the actual experiment will start.

@@ -1,0 +1,18 @@
+Welcome to this experiment.
+
+On each trial you will first briefly see a stimulus
+consisting of vertical lines. This stimulus is irrelevant,
+you ignore and forget it. 
+
+After a certain delay you will see 6 similar stimuli in 
+an array. 
+
+Your task is to judge on which side of the screen you see
+two identical orientations.
+
+If you found them on the left side, press F.
+If you found them on the right side, press J.
+
+Try to respond as fast but also as accurate as possible.
+
+Press a button to see an example trial.

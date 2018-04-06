@@ -1,0 +1,18 @@
+Welcome to this experiment.
+
+On each trial you will first briefly see a stimulus
+consisting of lines in a particular orientation.
+
+You need to remember this picture during a delay. 
+
+After this delay you will see another orientation-stimulus.
+
+Your task is to judge whether this orientation is similar
+to the one you remembered.
+
+If it is the same, press F.
+If it is different, press J.
+
+Try to respond as fast but also as accurate as possible.
+
+Press a button to see an example trial.

@@ -1,0 +1,18 @@
+Welcome to this experiment.
+
+On each trial you will first briefly see a stimulus
+consisting of lines in a particular orientation.
+
+You need to remember this picture during a delay. 
+
+After this delay you will see 6 similar stimuli in 
+an array. 
+Your task is to find the remembered orientation, and
+report on which side of the screen it is located.
+
+If you found it on the left side, press F.
+If you found it on the right side, press J.
+
+Try to respond as fast but also as accurate as possible.
+
+Press a button to see an example trial.

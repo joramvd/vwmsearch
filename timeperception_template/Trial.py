@@ -143,13 +143,13 @@ class Trial(object):
 			standard_time = int(floor(float(self.parameters['standard_Duration']) * float(self.parameters['monitor_refRate'])))
 
 			for frame in range(standard_time):
-				self.probeStim[1].draw()
+				self.probeStim[0].draw()
 				self.screen.flip()
 			for frame in range(isi_time + randrange(-1*isi_jitt, isi_jitt)):
 				self.fixStim.draw()
 				self.screen.flip()
 			for frame in range(probe_time):
-				self.probeStim[0].draw()
+				self.probeStim[1].draw()
 				self.screen.flip()
 
 			# response window for time judgment

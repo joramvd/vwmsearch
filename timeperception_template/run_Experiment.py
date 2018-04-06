@@ -92,7 +92,7 @@ mu, sigma = params['standard_Duration'], 0.1
 X = stats.truncnorm((lower - mu) / sigma, (upper - mu) / sigma, loc=mu, scale=sigma)
 
 params['timing_probe_Duration']  = X.rvs(100) # this should be variable, and should be reproduced to measure subjective duration
-
+dbstop()
 # determine number of trials for (practice) block
 # 50 targets by abs/pres by short/long block by house/face/letter = 600 trials; divided by 6 blocks = 100 trials per block
 # this gives 168 trials per category, collapsed over conditions

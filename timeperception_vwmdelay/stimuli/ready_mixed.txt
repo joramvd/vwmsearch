@@ -1,0 +1,7 @@
+In the next NBLOCKS blocks of NTRIALS trials,
+the search task at each trial can come EARLY or LATE.
+
+You will only receive feedback about your average
+performance after each block.
+
+If you press a button, the actual experiment will start.

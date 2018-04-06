@@ -1,0 +1,13 @@
+Sometimes, there will not be a test stimulus, but instead
+the fixation dot will get a small circle around it.
+
+This indicates that you have to manually reproduce the duration
+of the memory delay (in other words: how long you were remembering
+the orientation stimulus).
+
+Press the space bar to start reproducing the delay. The fixation
+dot will turn red. When you think a delay of similar duration
+has ended, press the space bar again, and the fixation dot
+will turn white again, and the next trial will start.
+
+Press a button to see an example trial.
